@@ -84,3 +84,9 @@ GTAGS
 *.orig
 *~
 \#*#
+
+
+/build.sh
+/clean.sh
+/zip_creator.sh
+/make_defconfig.sh
