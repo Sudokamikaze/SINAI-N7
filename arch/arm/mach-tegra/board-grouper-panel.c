@@ -26,6 +26,9 @@
 #include <linux/nvmap.h>
 #include <mach/iomap.h>
 #include <mach/dc.h>
+#include <linux/display_state.h>
+#include <linux/kernel.h>
+#include <linux/module.h>
 
 #include "board.h"
 #include "board-grouper.h"
@@ -75,6 +78,13 @@ static tegra_dc_bl_output grouper_bl_output_measured = {
 	240, 241, 242, 243, 244, 245, 246, 247,
 	248, 249, 250, 251, 252, 253, 254, 255
 };
+
+bool display_on = true;
+
+bool is_display_on()
+{
+	return display_on;
+}
 
 static p_tegra_dc_bl_output bl_output;
 
@@ -167,6 +177,8 @@ static int grouper_panel_enable(struct device *dev)
 		gpio_direction_output(TEGRA_GPIO_PV6, 1);
 	}
 
+	display_on = true;
+	printk(KERN_INFO "State %d\n",display_on);
 	return 0;
 }
 
@@ -190,6 +202,8 @@ static int grouper_panel_disable(void)
 		grouper_lvds_vdd_panel = NULL;
 	}
 
+	display_on = false;
+	printk(KERN_INFO "State %d\n",display_on);
 	return 0;
 }
 
