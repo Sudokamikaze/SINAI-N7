@@ -4,13 +4,12 @@ echo "Do not execure this, and do not edit"
 exit 1
 
 KERNELNAME=SINAI-N7
-DEVICE=mako
+DEVICE=grouper
 BRANCH=grouper
 VER=N
 MODULES=false
 PATCH=false
-CLEAN_TOOLCHAIN_PATH="$HOME/storage/toolchains/clean-tc"
-TOOLCHAIN_PATH="$HOME/storage/toolchains/7.2_a9"
+TOOLCHAIN_PATH="$HOME/storage/toolchains/7.3_a9"
 ONLYZIMAGE=true
 FLASHER=anykernel
 DEFCONFIG=sudokamikaze_grouper_defconfig
